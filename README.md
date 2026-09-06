@@ -366,29 +366,27 @@ Unique preparation / admin:
     * Paste the name of the AD groups (IDM_CLS_ENG_COMPSC...) on the Add Members popup window in the box that says "Start typing a name or group" (also see below)
 
     ```text
-    TLB	W09A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10421
-    TLB	W11A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10423
-    TLB	W13A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10424
-    TLB	W15A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10425
-    TLB	W17A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10426
-    TLB	W17B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10427
-    TLB	W17C	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10428
-    TLB	H13A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10413
-    TLB	H13B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10414
-    TLB	H13C	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10415
-    TLB	H15A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10416
-    TLB	H15B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10417
-    TLB	H17A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10418
-    TLB	H17B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10419
-    TLB	H17C	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10420
-    TLB	F09A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10404
-    TLB	F11A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10406
-    TLB	F11B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10407
-    TLB	F13A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10408
-    TLB	F13B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10409
-    TLB	F15A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10410
-    TLB	F15B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10411
-    TLB	F17A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T2_5266_10412
+    TLB	T17A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9536
+    TLB	W09B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9539
+    TLB	W11B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9541
+    TLB	W13A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9542
+    TLB	W13B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9543
+    TLB	W15A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9544
+    TLB	W15B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9545
+    TLB	W17A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9546
+    TLB	W17B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9547
+    TLB	H13A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9530
+    TLB	H13B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9531
+    TLB	H15A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9532
+    TLB	H15B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9533
+    TLB	H17A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9534
+    TLB	H17B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9535
+    TLB	F09A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9522
+    TLB	F11A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9524
+    TLB	F11B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9525
+    TLB	F13A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9526
+    TLB	F13B	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9527
+    TLB	F15A	UGRD	IDM_CLS_ENG_COMPSC_UGRD_COMP1531_T3_5269_9528
     ```
 
 #### A.1.0.1 Creating a Microsoft Teams Team for your Tutorial
@@ -732,12 +730,12 @@ Your responsibility is to oversee all lab reruns to ensure course-wide consisten
 
 Below are some rough expectations for how many help session requests and forum queries each tutor should answer within 2 hours.
 
-| Situation   | Time per Request | Requests Resolved   | Time per Query | Queries Resolved |
-|-------------|------------------|---------------------|----------------|------------------|
-| Ideal       |  8 minutes | 15 requests               |  3 minutes     | 40 queries       |
-| Good        | 10 minutes | 12 requests               |  5 minutes     | 24 queries       |
-| Okay        | 12 minutes | 10 requests               |  8 minutes     | 15 queries       |
-| Worst       | 15 minutes |  8 requests               | 10 minutes     | 12 queries       |
+| Situation | Time per Request | Requests Resolved | Time per Query | Queries Resolved |
+| --------- | ---------------- | ----------------- | -------------- | ---------------- |
+| Ideal     | 8 minutes        | 15 requests       | 3 minutes      | 40 queries       |
+| Good      | 10 minutes       | 12 requests       | 5 minutes      | 24 queries       |
+| Okay      | 12 minutes       | 10 requests       | 8 minutes      | 15 queries       |
+| Worst     | 15 minutes       | 8 requests        | 10 minutes     | 12 queries       |
 
 Note that this is only a rough guideline - it does not account for unforeseen
 circumstances. However, in the worst-case scenario (i.e. all students take up
