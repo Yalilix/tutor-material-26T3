@@ -424,33 +424,31 @@ Here's what my previous teams looked like:
 
 You can email all students in your class via cse email aliases. This will be `cs1531.[YOUR-CLASS]@cse.unsw.edu.au`.
 
-To find your class you can check the timetable on [https://timetable.unsw.edu.au/2026/COMP1531.html#S2](https://timetable.unsw.edu.au/2026/COMP1531.html#S2) or [https://cgi.cse.unsw.edu.au/~give/Admindata/26T2/COMP1531_timetable.html](https://cgi.cse.unsw.edu.au/~give/Admindata/26T2/COMP1531_timetable.html).
+To find your class you can check the timetable on [https://timetable.unsw.edu.au/2026/COMP1531.html#S3](https://timetable.unsw.edu.au/2026/COMP1531.html#S3) or [https://cgi.cse.unsw.edu.au/~give/Admindata/26T3/COMP1531_timetable.html](https://cgi.cse.unsw.edu.au/~give/Admindata/26T3/COMP1531_timetable.html).
 
 Full list of email aliases for 26T2 below:
 ```md
-cs1531.fri09-harp
-cs1531.fri11-harp
-cs1531.fri11-tabla
-cs1531.fri13-harp
-cs1531.fri13-tabla
-cs1531.fri15-harp
-cs1531.fri15-tabla
-cs1531.fri17-lute
-cs1531.thu13-harp
-cs1531.thu13-sitar
-cs1531.thu13-tabla
-cs1531.thu15-lute
-cs1531.thu15-tabla
-cs1531.thu17-flute
-cs1531.thu17-pipa
-cs1531.thu17-tabla
+cs1531.tue17-pipa
 cs1531.wed09-pipa
-cs1531.wed11-tabla
-cs1531.wed13-brass
-cs1531.wed15-brass
-cs1531.wed17-flute
+cs1531.wed11-pipa
+cs1531.wed13-lute
+cs1531.wed13-tabla
+cs1531.wed15-strings
+cs1531.wed15-tabla
 cs1531.wed17-pipa
 cs1531.wed17-tabla
+cs1531.thu13-lute
+cs1531.thu13-sitar
+cs1531.thu15-flute
+cs1531.thu15-oboe
+cs1531.thu17-flute
+cs1531.thu17-harp
+cs1531.fri09-pipa
+cs1531.fri11-pipa
+cs1531.fri11-tabla
+cs1531.fri13-harp
+cs1531.fri13-pipa
+cs1531.fri15-flute
 ```
 
 If you need to double-check who is on your alias, run `mlalias <alias-name>` from a cse terminal.
