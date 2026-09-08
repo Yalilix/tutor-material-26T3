@@ -2,19 +2,31 @@
 
 [TOC]
 
-> **[TUTOR NOTE]** Please fork this repository before coding!
->
-> Although the introduction activity is gone, please introduce yourself to your
-> class and get keen to meet them individually during the labs.
->
-> Tutors may wish to start with git e.g.
-> - `git clone` the forked repository
-> - complete the JS activity
-> - `git status` `git add` `git commit` `git push` the changed files
+> **Tutor note: please fork before coding !!**
 
-## A. Javascript
+## A. Introductions
 
-> 25 minutes
+> 10 minutes
+
+1. Your tutor will split you into random groups with an icebreaker activity and/or a problem to solve in 5 minutes.
+
+2. Come back together and reflect with your tutor on how you came up with those answers.
+
+> Ice Breaker Ideas:
+> - 2 Truths and 1 lie
+> - Find something common between group members that isn't related to uni
+> - Spectrum - students answer questions by standing along a spectrum based on what they think
+> - [Ice breaker bingo](https://docs.google.com/document/d/1iZWp6wVP5U__HqFKOG-mepCJGSmHV8vOF0koMtnXR30)
+>
+> Other Activity ideas:
+> - Would you rather fight one fight one elephant sized ant or 1000 ant sized elephants? why?
+> - How many chairs do you think could fit in this room?
+> - Name as many CSE labs as you can
+> - [Rank australian snacks in a tierlist](https://tiermaker.com/create/aussie-snacks-162)
+
+## B. From C to Javascript: A Quick Overview
+
+> 20 minutes
 
 ### 1. Basic Syntax, Input/Output, Conditionals & Control Flow + Functions
 
@@ -73,7 +85,7 @@ As you write the program, discuss the following questions:
     > - by using the `function` keyword then providing the name of the function!
     > - we don't need a function prototype, return type or parameter types when declaring a function
 
-### 2. Arrays, Objects, and Loops
+### 2. Arrays and Objects + Loops
 Javascript objects are just a collection of properties, kinda like structs, but better. Properties are key value pairs in the form `key: value` where keys are strings and values can be of any type (String, Number, Array, Object, etc..).
 
 ```js
@@ -84,82 +96,48 @@ let fruit = {
 ```
 
 1. How can we get the name and cost of the fruit in the object above?
-    > `fruit.name` and `fruit.cost`
+> `fruit.name` and `fruit.cost`
 
 2. Brainstorm ways we can loop through the shopping list given in [loopy.js](loopy.js) to print the names of all items in the shopping list?
 
-    > <details close>
-    > <summary> Click to view SOLUTION! </summary>
-    >
-    > ```js
-    > // 1. c-style for loop (not recommended)
-    > for (let i = 0; i < shoppingList.length; i++) {
-    >     console.log(shoppingList[i].name);
-    > }
-    >
-    > // 2. for in loop (not recommended for this)
-    > for (const i in shoppingList) {
-    >     console.log(shoppingList[i].name);
-    > }
-    >
-    > // 3. for of loop (recommended)
-    > for (const item of shoppingList) {
-    >     console.log(item.name);
-    > }
-    > ```
-    >
-    > </details>
+> <details close>
+> <summary> Click to view SOLUTION! </summary>
+>
+> ```js
+> // 1. c-style for loop (not recommended)
+> for (let i = 0; i < shoppingList.length; i++) {
+>     console.log(shoppingList[i].name);
+> }
+>
+> // 2. for in loop (not recommended for this)
+> for (const i in shoppingList) {
+>     console.log(shoppingList[i].name);
+> }
+>
+> // 3. for of loop (recommended)
+> for (const item of shoppingList) {
+>     console.log(item.name);
+> }
+> ```
+>
+> </details>
 
 3. Why should we use for of loops instead of for in loops where possible? <br> (`typeof` is a function that returns a string with the type of the argument passed in. what does this program output?)
 
-    ```js
-    const arr = [1, 2, 3]
-    for (const i in arr) {
-        console.log(typeof(i))
-    }
-    ```
+```js
+const arr = [1, 2, 3]
+for (const i in arr) {
+    console.log(typeof(i))
+}
+```
 
-    > - for of loops often produce cleaner code as we don't need extra code to index the array
-    > - the code above will print "string" 3 times indicating that i is not a number, but a string. this can cause issues when trying to perform arithmetic on the index, notably with the `+` operator as `'1' + 1 = 11` in javascript
-    > - note: sometimes you may need to use the index and a `for in` loop would be needed.
+> - for of loops often produce cleaner code as we don't need extra code to index the array
+> - the code above will print "string" 3 times indicating that i is not a number, but a string. this can cause issues when trying to perform arithmetic on the index, notably with the `+` operator as `'1' + 1 = 11` in javascript
+> - note: sometimes you may need to use the index and a `for in` loop would be needed.
 
-4. [ADVANCED] We often need to perform common operations when working with arrays... JS has inbuilt array methods that can help us! Pick 1 or 2 loops in [methods.js](methods.js) to rewrite with array methods.
+## C. Git Fundamentals
 
-    > **[TUTOR NOTE] Students may be overwhelmed here, so please reassure them that they don't need to understand these yet. For now, this is a stylish method for advanced students to explore.**
-
-    You may find the following webpage useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-    > <details close>
-    > <summary> Click to view SOLUTION! </summary>
-    >
-    > ```js
-    > // 1. Check if an array of numbers contains 67
-    > const numbers = [ 42, 789, 67, 0, 1 ];
-    > const present = numbers.includes(67);
-    >
-    > // 2. Filter only words containing `cat` from a list
-    > const words = [ 'locate', 'turtle', 'educational', 'copy' ];
-    > const catWords = words.filter(w => w.includes('cat'));
-    >
-    > // 3. Triple all prime numbers
-    > const primes = [ 2, 3, 5, 7, 11 ];
-    > const triplePrime = primes.map(p => p * 3);
-    >
-    > // 4. Find the first game that has name 'Exploding Kittens'
-    > const games = [
-    >   { name: 'Chess', players: [2] },
-    >   { name: 'Valorant', players: [1,5] },
-    >   { name: 'Exploding Kittens', players: [2,5] },
-    >   { name: 'Roblox', players: [1, undefined] },
-    > ];
-    > const foundKittens = games.find(g => g.name === 'Exploding Kittens');
-    > ```
-    >
-    > </details>
-
-## B. Git Fundamentals
-
-> 15 minutes
+> 20 minutes
 
 For many of you, this tutorial happens before you've seen the `git` content in lectures! This is by design, as the basics of git are quite straightforward and procedural. We will go into more depth in the future.
 
