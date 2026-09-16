@@ -173,14 +173,15 @@ Lab assistants are also to check in with individual students to roughly track th
  * lab attendance for the current week
 
 The check-in should happen in weeks 4, 7 and 9.
-The main objective is to encourage students to stay up-to-date with course contents and make at least a partial attempt in the core labs, which are
+The main objective is to encourage students to stay up-to-date with course contents and make at least a partial attempt in the core labs. The most important of which are
 
+ * lab01_git
  * lab01_objects
  * lab03_diary
+ * lab04_encanto
  * lab05_checkins
- * lab08_snapnews
 
-For lab01_objects, you will only need to check verbally - the sheet is not ready at this time due to varying enrolments. Please also inform students that you will be keeping tabs on their work in future core labs.
+For lab01, you will only need to check verbally - the sheet is not ready at this time due to varying enrolments. Please also inform students that you will be keeping tabs on their work in future core labs.
 
 ### Help Session Element
 
