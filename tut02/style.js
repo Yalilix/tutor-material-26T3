@@ -16,6 +16,7 @@ let userData = [
   },
 ];
 
+/////////////////////////////////// PART 1 ///////////////////////////////////
 //////////////////// TODO: Fix the style of the code below ////////////////////
 
 // Is there someone taller than 190cm? What about 195cm?
@@ -46,3 +47,14 @@ for (let i = 0; i<userData.length; i++) {
 }
 let y = x / userData.length
 console.log(y);
+
+/////////////////////////////////// PART 2 ///////////////////////////////////
+////////////// TODO: Rewrite the code above using array methods ///////////////
+//////////// TODO: Complete the problems below using array methods ////////////
+
+// how do we add a user called Jarrod, aged 19 and with a height of 162?
+
+// how do we remove Jason from the array? (hint: we found jason above)
+
+// make a copy of the array?
+

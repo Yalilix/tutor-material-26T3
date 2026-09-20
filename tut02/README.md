@@ -2,9 +2,115 @@
 
 [TOC]
 
-## A. Git for Teamwork
+## A. Style
 
-> 25 minutes
+### 1. Basic style
+While we haven't given you a style guide yet, it's still important to maintain
+good style! Most styling rules taught in 1511 still apply.
+
+Take a look at [style.js](style.js). It contains many style issues. You will
+have 5 minutes to review the code in your groups and identify as many style
+issues as you can!
+
+> <details close>
+> <summary> Click to view SOLUTION! </summary>
+>
+> - More descriptive variable names (instead of x y z, use sum, average and user)
+> - Consistent and proper spacing
+> - Consistent indentation (we use 2-space indentation in 1531)
+> - Use a for-of loop instead of c-style and for-in loops
+> - `const` instead of `let`
+>
+>
+> ```js
+> // Is there someone taller than 190cm? What about 195cm?
+> let flag = 1;
+> for (const user of userData) {
+>   if (user.height > 190) {
+>     console.log(true);
+>     flag = 0;
+>   }
+> }
+> if (flag) {
+>   console.log(false);
+> }
+>
+> // What is Jason's age?
+> let jason;
+> for (user of userData) {
+>   if (user.name === 'Jason') {
+>     jason = user;
+>   }
+> }
+> console.log(`Jasons age is: ${jason.age}`)
+>
+> // What's the average height of all users?
+> let sum = 0;
+> for (user of userData) {
+>   sum += user.height;
+> }
+> let average = sum / userData.length;
+> console.log(average);
+> ```
+> </details>
+
+### 2. Javascript style / Array Methods
+
+JavaScript is a high-level language with many built-in features that simplify
+common tasks. This built-in functionality makes it easier to read, write and
+debug code.
+
+Today, we’ll focus on array methods. These are like functions specifically
+designed for performing common operations on arrays, such as adding elements,
+finding items, sorting, and more.
+
+Let's try to rewrite the code in a more "javascripty" way by using array
+methods. Search online for some array methods you could use to perform the
+following tasks:
+
+- Finding if there exists a user taller than 190
+- Finding the age of a user given their name
+- Finding the average height of all the users
+- Add a user to the array
+- Remove a user from the array
+- Make a copy of the array
+
+> <details close>
+> <summary> Click to view SOLUTION! </summary>
+>
+> ```js
+> /////////////////////////////////// PART 1 ///////////////////////////////////
+>
+> // Is there someone taller than 190cm? What about 195cm?
+> console.log(userData.some(user => user.height > 190))
+>
+> // What is Jason's age?
+> const age = userData.find(user => user.name === 'Jason').age
+> console.log(`Jasons age is: ${age}`)
+>
+> // What's the average height of all users?
+> console.log(userData.reduce((a, b) => a + b.height, 0) / userData.length)
+>
+> /////////////////////////////////// PART 2 ///////////////////////////////////
+>
+> // how do we add a user called Jarrod, aged 19 and with a height of 162?
+> userData.push({
+>   name: 'Jarrod',
+>   age: 19,
+>   height: 162,
+> })
+>
+> // how do we remove Jason from the array?
+> userData = userData.filter(person => person.name != 'Jason');
+>
+> // make a copy of the array?
+> let userDataCopy = structuredClone(userData);
+> ```
+> </details>
+
+## B. Git for Teamwork
+
+> 20 minutes
 
 ### Branching
 To ensure our repository always contains a stable, bug-free version of our code,
@@ -126,13 +232,11 @@ master when you're done?
 > improvements before it gets merged into the master branch.
 
 ### Handling merge conflicts
-
 While Git is great at merging code changes automatically, it can struggle
 sometimes, especially when two people modify the same part of code
 simultaneously. In such cases, Git can’t determine how to merge the changes,
-resulting in a merge conflict.
-
-Learning how to resolve merge conflicts properly is important!
+resulting in a merge conflict. Learning how to resolve merge conflicts properly
+is important!
 
 Firstly, let's create a merge conflict.
 1. On `alex-branch`, edit an existing file and add some code to line 1. Save the
@@ -143,14 +247,13 @@ Firstly, let's create a merge conflict.
    > ![merge-conflict-alex-branch-edit](/tut02/assets/merge-conflict-alex-branch-edit.png)
    > </details>
 
-2. From the **master branch**, create a new branch called `bob-branch` and checkout to it.
+2. From the master branch, create a new branch called `bob-branch` and checkout
+   to it.
    > <details close>
    > <summary> Click to view example</summary>
    >
    > ![merge-conflict-create-bob-branch](/tut02/assets/merge-conflict-create-bob-branch.png)
    > </details>
-
-   > [TUTOR_NOTE] Consider asking students, why we branch from `master`?
 
 3. On `bob-branch`, edit the **same file** and add some lines of code to line 1
    > <details close>
@@ -221,321 +324,4 @@ How do we resolve this merge conflict?
 > 3. Finally, we can git push, and our merge request should no longer conflict.
 >
 >     ![merge-conflict-resolved-mr-ready](/tut02/assets/merge-conflict-resolved-mr-ready.png)
-> </details>
-
-
-## B. SDLC - Requirements to Design
-
-> 15 mins
-
-![SDLC](assets/sdlc.png)
-
-In this tutorial, we'll briefly discuss a simplified version of the first few stages of the SDLC; Requirements Analysis and Design.
-
-### Part 1 - Nontendi PixelPups
-
-You've been hired by Nontendi to develop a game called PixelPups to help students relax. It's a simulation game about taking care of a dog.
-
-Our goal is to figure out what functions we need to develop and what data we need to store to make the game work.
-
-#### Requirements: Elicitation
-
-Your tutor has held a quick interview with a Nontendi representative. The interview was completed over the phone, so they have written some notes from the discussion.
-- When I play the game I want to be able to start by adopting a dog!
-- In fact, I should be able to adopt multiple dogs! Just maybe not too many…
-- I should be able to name my dog! And all my dogs should have unique names so I don’t mix them up.
-- I want to be able to feed my dog when it's hungry. But not overfeed them, so they have a long and healthy life.
-
-
-#### Requirements: Analysis
-
-Question: Before we jump into coding, what would you do next to figure out which functions to develop?
-
-<details close>
-<summary> Click to view SOLUTION.</summary>
-  We would convert the requirements into user-centered, actionable pieces of work.
-</details>
-
-We can do this through user stories and acceptance criteria.
-
-<details close>
-<summary> Click to view example requirement breakdown.</summary>
-
-- US1: As a student, I want to be able to adopt a dog in the game, so I can start taking care of it.
-  - AC1: Adopted dogs should have a unique name.
-  - AC2: The student should only be able to adopt three dogs at a time.
-- US2: As a student, I want to feed my dog, so that my dog isn’t hungry.
-  - AC1: Dogs shouldn't accept food if they’re full.
-
-</details>
-
-> [TUTOR_NOTE]
-> - Students may be confused as to the purpose of user stories. Consider asking students why it would be useful to translate elicitation into the above?
-> - Similarly, students may be confused as to the purpose of acceptance criteria. Consider asking why it would be useful for each user story to have acceptance criteria.
-
-
-#### Design: Interface
-
-Now that we have actional requirements, let's design an interface table and data structure for the game.
-
-This has been provided for us in the table below.
-
-<table>
-  <thead>
-    <tr>
-      <th>Name & Description</th>
-      <th>Parameters</th>
-      <th>Return Type</th>
-      <th>Errors</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>adopt</code>
-        <br/>Adopt a new puppy and give it a name.
-      </td>
-      <td>(name)</td>
-      <td><code>{} | Error</code></td>
-      <td>
-        <code>NON_UNIQUE_NAME</code> – if user has already adopted a puppy with the same name<br>
-        <code>PACK_LIMIT</code> – if user has already adopted 3 puppies
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>actionFeed</code>
-        <br/>Feed a dog and show their updated hunger level from 1 to 5.
-      </td>
-      <td>(name)</td>
-      <td><code>hungerLevel | Error</code></td>
-      <td>
-        <code>DOG_NOT_FOUND</code> – if given name doesn’t match the name of our dog<br>
-        <code>PUPPY_IS_FULL</code> – if puppy is not hungry and already full they cannot be fed
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-As part of our interface design, we'll also note down the data types required.
-<table>
-  <thead>
-    <tr>
-      <th>If the parameter / variable name…</th>
-      <th>It is of type…</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>name</code></td>
-      <td><code>string</code></td>
-    </tr>
-    <tr>
-      <td><code>hungerLevel</code></td>
-      <td><code>number</code> - ranging from 1..5 (full to famished)</td>
-    </tr>
-    <tr>
-      <td><code>error</code></td>
-      <td><code>string</code> - classified type of error</td>
-    </tr>
-    <tr>
-      <td><code>message</code></td>
-      <td><code>string</code> - human readable error mesage</td>
-    </tr>
-    <tr>
-      <td><code>Error</code></td>
-      <td>
-        Object with keys <code>{ error, message }</code>.
-        <br/>
-        Example: <code>{ error: 'PACK_LIMIT', message: "You've adopted the maximum amount of dogs!" }</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-#### Design: Data
-
-Before we begin writing our functions, we also need to consider how we will store our data. For our purposes we will simply store everything we need into one variable.
-
-To help us visualise the structure of this variable, let’s consider how our database will look like with dummy values.
-
-```js
-const dogPile = [
-  {
-    name: "Arker",
-    hungerLevel: 1,
-  },
-  {
-    name: "Bruno",
-    hungerLevel: 5,
-  },
-];
-```
-
-Now that the design has been completed developers can create the game!
-
-### Part 2 - Pet the PixelPup
-
-After completing the core features of PixelPups, the Nontendi market research team has come back with new requirements.
-
-#### Requirements
-It turns out, people want to pet their dogs! Users report:
-- I want to be able to pet my dog to increase our bond!
-- My dog should only let me pet them, if I call their name
-- The more I pet my dog, the more it should “woof”, to give me security in my relationship with my dog.
-
-Your tutor quickly converts the new requirement into the following user story:
-- US3: As a user, I want to pet my dog, to improve our bond.
-  - AC1: If the user incorrectly calls their dog, it will refuse pets and their bond will decrease
-  - AC2: Every time dog is pet, it replies with more "woof"s to show affection from their bond, e.g. 2 pets is 2 “woof”s
-
-#### Design
-
-1. Given the new set of requirements and corresponding user stories, as a class, brainstorm a new feature and add corresponding function/s to the interface table.
-
-    > [TUTOR_NOTE] You may wish to share/show a collaborative doc:
-    > - https://docs.google.com/document/d/1NL23vaQcGTyj-QMJdrZ87FjNc5bglELL6xyMgnJSw78/edit?usp=sharing
-    > - Avoid giving students the answer. Attempt to brainstorm a solution with your class as they'll need practice for iter0.
-    > - Note that US3-AC1 can be implemented in different ways, e.g. the return may be { bark: “woof woof woof” }or just {numWoof: 3}
-
-    > <details close>
-    > <summary> Click to view potential SOLUTION.</summary>
-    >
-    > Interface: Functions
-    > <table>
-    >   <thead>
-    >     <tr>
-    >       <th>Name & Description</th>
-    >       <th>Parameters</th>
-    >       <th>Return Type</th>
-    >       <th>Errors</th>
-    >     </tr>
-    >   </thead>
-    >   <tbody>
-    >     <tr>
-    >       <td>
-    >         <code>actionPet</code>
-    >         <br/>Pet a dog, <code>numPets</code> times, after calling its name.
-    >       </td>
-    >       <td>(name, numPets)</td>
-    >       <td><code>numWoofs | Error</code></td>
-    >       <td>
-    >         <code>DOG_NOT_FOUND</code> – if given name doesn’t match the name of our dog
-    >         <br>
-    >         <code>INVALID_PETS</code> – if `numPets` is less than 1
-    >       </td>
-    >     </tr>
-    >   </tbody>
-    > </table>
-    >
-    >  Interface: Data Types
-    > <table>
-    >   <thead>
-    >     <tr>
-    >       <th>If the parameter / variable name…</th>
-    >       <th>It is of type…</th>
-    >     </tr>
-    >   </thead>
-    >   <tbody>
-    >     <tr>
-    >       <td><code>numPets</code></td>
-    >       <td><code>number</code></td>
-    >     </tr>
-    >     <tr>
-    >       <td><code>numWoofs</code></td>
-    >       <td><code>number</code> - number of "woofs" representing the student's bond with their dog</td>
-    >     </tr>
-    >   </tbody>
-    > </table>
-    >
-    > </details>
-    >
-
-2. Given your new interface design, update the sample data structure in [puppy.js](puppy.js).
-
-    > <details close>
-    > <summary> Click to view potential SOLUTION.</summary>
-    >
-    > ```js
-    > const dogPile = [
-    >   {
-    >     name: "Bruno",
-    >     hungerLevel: 1,
-    >     // New data to store
-    >     bondLevel: 0,
-    >   }
-    > ];
-    > ```
-    > </details>
-    >
-
-## C. Style
-
-> 5 mins
-
-It's important to maintain good style across a codebase, while JavaScript is a different from C, most styling rules taught in 1511 still apply.
-
-Take a look at [style.js](style.js). It contains many style issues. You will have 2 minutes to review the code and identify as many style issues as you can!
-
-[Hint] Check out the course style-guide here: https://cgi.cse.unsw.edu.au/~cs1531/26T2/style-guide
-
-> <details close>
-> <summary> Click to view SOLUTION! </summary>
->
-> - More descriptive variable names (instead of x y z, use sum, average and user)
-> - Consistent and proper spacing
-> - Consistent indentation (we use 2-space indentation in 1531)
-> - Use a for-of loop instead of c-style and for-in loops
-> - `const` instead of `let`
->
->
-> ```js
-> // Is there someone taller than 190cm? What about 195cm?
-> let flag = 1;
-> for (const user of userData) {
->   if (user.height > 190) {
->     console.log(true);
->     flag = 0;
->   }
-> }
-> if (flag) {
->   console.log(false);
-> }
->
-> // What is Jason's age?
-> let jason;
-> for (user of userData) {
->   if (user.name === 'Jason') {
->     jason = user;
->   }
-> }
-> console.log(`Jasons age is: ${jason.age}`)
->
-> // What's the average height of all users?
-> let sum = 0;
-> for (user of userData) {
->   sum += user.height;
-> }
-> let average = sum / userData.length;
-> console.log(average);
-> ```
->
-> We can take this even further with array methods.
->
-> ```js
-> // Is there someone taller than 190cm? What about 195cm?
-> const flag = userData.some(user => user.height > 190);
-> console.log(!flag);
->
-> // What is Jason's age?
-> const jason = userData.find(user => user.name === 'Jason');
-> console.log(`Jasons age is: ${jason.age}`);
->
->
-> // What's the average height of all users?
-> const sum = userData.reduce((sum, user) => sum += user.height, 0);
-> const average = sum / userData.length;
-> console.log(average);
-> ```
 > </details>
