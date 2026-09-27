@@ -8,10 +8,12 @@ export default defineConfig({
     printConsoleTrace: true,
     silent: false,
 
-    // Disable file parallelism as different test files reference shared data
+    // Disable file parallelism
+    // In 1531, different test files reference shared data!
     fileParallelism: false,
 
-    // Timeout if test or hook (beforeEach, afterEach, etc) takes too long
+    // Timeout asynchronous tests/hooks that don't complete
+    // Note: this won't stop synchronous infinite loops.
     testTimeout: 10_000,
     hookTimeout: 10_000,
 
