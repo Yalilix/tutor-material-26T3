@@ -14,12 +14,12 @@ import validator from 'validator';
 export function addUser(email, password) {
   // check if password is empty
   if (password === "") {
-    return { error: 'INVALID_PASSWORD', message: 'empty password' };
+    return { error: 'empty password' };
   }
 
   // validate the email
   if (!validator.isEmail(email)) {
-    return { error: 'INVALID_EMAIL', message: 'invalid email' };
+    return { error: 'invalid email' };
   }
 
   // generate a random string for the userId
@@ -53,13 +53,13 @@ export function addUser(email, password) {
  */
 export function addSong(name, artist, duration) {
   if (name === '') {
-    return { error: 'INVALID_NAME', message: 'empty song name' };
+    return { error: 'empty song name' };
   }
   if (artist === '') {
-    return { error: 'INVALID_ARTIST', message: 'empty artist name' };
+    return { error: 'empty artist name' };
   }
   if (duration > 10 || duration < 0) {
-    return { error: 'INVALID_DURATION', message: 'duration is less than 0 or greater than 10' };
+    return { error: 'duration is less than 0 or greater than 10' };
   }
 
   const data = getData();
@@ -80,16 +80,16 @@ export function addSong(name, artist, duration) {
 export function addToPlaylist(userId, songId) {
   const user = findUser(userId);
   if (!user) {
-    return { error: 'INVALID_USER_ID', message: 'user id is invalid' };
+    return { error: 'user id is invalid' };
   }
 
   const song = findSong(songId);
   if (!song) {
-    return { error: 'INVALID_SONG_ID', message: 'song id is invalid' };
+    return { error: 'song id is invalid' };
   }
 
   if (user.playlist.includes(song)) {
-    return { error: 'IN_PLAYLIST', message: 'song is already in users playlist' };
+    return { error: 'song is already in users playlist' };
   }
 
   user.playlist.push(song);
@@ -104,7 +104,7 @@ export function addToPlaylist(userId, songId) {
 export function listPlaylist(userId) {
   const user = findUser(userId);
   if (!user) {
-    return { error: 'INVALID_USER_ID', message: 'user id is invalid' };
+    return { error: 'user id is invalid' };
   }
   return user.playlist;
 }
