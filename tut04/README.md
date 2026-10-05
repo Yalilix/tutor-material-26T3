@@ -201,7 +201,16 @@ In [types.js](a.typescript/types.js) lies some basic functions:
 7. (Optional) What would be a better way to type the error type string so that you can't ever make spelling mistakes or return an error type that doesn't exist?
     > Instead of relying on the `string` type, you can make your own type. For example `ErrorType` which can either be `UNAUTHORISED` or `INVALID_DETAILS` (through either an enum or a union type).
 
-8. Show how [playlist/](/tut04/playist/) can be converted from JS to TS.
+8. How could we convert [tut03 playlist/](/tut04/playist/) from last week from JS to TS?
+    > 1. Install relevant packages i.e.
+    >   $ `npm i -D typescript`
+    >   $ `npm i tsx`
+    >   $ `npm i -D @types/validator`
+    > 2. Run typecheck i.e. add tsc script
+    >   `"typecheck": "tsc --noEmit"`
+    > 3. Convert all files from JS to TS
+    > 4. Progressively add types and `npm run typecheck`
+    >    (Focussing on converting tests if out of time).
 
 ## B. Linting
 > 10 minutes
@@ -293,6 +302,9 @@ Below is a piece of software written by a COMP1531 tutor back when they were sti
     > ```
     >
     > </details>
+
+
+> TUTOR_NOTE: there will be an opportunity to discuss the following exercises in more detail the following weeks.
 
 ## C. APIs
 
