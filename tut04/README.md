@@ -2,7 +2,10 @@
 
 [TOC]
 
-> tutor note: Main focus for this week is typescript and intro to http servers. Show students lint-fix and tell them that some style errors need to be manually fixed if running short for time
+> tutor note: Main focus for this week is typescript and lint.
+> Focus on showing converting functions and tests to typescript e.g.
+> type-casting via `as const`, or
+> type-narrowing via `expect.assert(...)` https://vitest.dev/guide/recipes/type-narrowing#type-narrowing-in-tests
 
 ## A. Intro to Typescript & Types
 
@@ -192,13 +195,106 @@ In [types.js](a.typescript/types.js) lies some basic functions:
 5. (Optional) Why do we need to type the constant `users` but not `id`?
     > The type of `id` can be inferred from the value assigned to it, but the type of `users` can't as typescript doesn't know what type of objects will eventually be stored in that array without explicit typing.
 
-5. (Optional) Rewrite the UserInfo interface so that it extends the UserId interface. Why would we want to do this?
+6. (Optional) Rewrite the UserInfo interface so that it extends the UserId interface. Why would we want to do this?
     > It reduces repetition in interfaces, resulting in fewer areas to update if you modify a property shared across multiple interfaces and cleaner code.
 
-5. (Optional) What would be a better way to type the error type string so that you can't ever make spelling mistakes or return an error type that doesn't exist?
+7. (Optional) What would be a better way to type the error type string so that you can't ever make spelling mistakes or return an error type that doesn't exist?
     > Instead of relying on the `string` type, you can make your own type. For example `ErrorType` which can either be `UNAUTHORISED` or `INVALID_DETAILS` (through either an enum or a union type).
 
-## B. APIs
+8. Show how [playlist/](/tut04/playist/) can be converted from JS to TS.
+
+## B. Linting
+> 10 minutes
+
+> tutor note: just show students how to use lint-fix if you're running out of time, don't worry about fixing the code manually.
+
+Below is a piece of software written by a COMP1531 tutor back when they were still a newbie programmer in COMP1511. This was the interface that they followed:
+
+### Interface: Functions
+
+<table>
+  <tr>
+    <th>Name & Description</th>
+    <th>Parameters</th>
+    <th>Return Type</th>
+    <th>Error</th>
+  </tr>
+  <tr>
+    <td>
+        <code>drawX</code><br/><br/>
+        Return a string that contains an x of a certain size, made up of smaller x-es.<br/>
+        There should be no trailing white spaces.
+    <td>
+        (size)
+    </td>
+    <td>
+        <code>string</code>
+    </td>
+    <td>
+        Return the string <code>'error'</code> if the given <code>size</code> is not an odd number.
+    </td>
+  </tr>
+</table>
+
+1. Without modifying the code, review the `drawX` function in [x.ts](b.linting/x.ts), what are some styling/design issues?
+    > Answers may vary - here are a few:
+    > - 4-indent (prefer 2 in COMP1531)
+    > - else-if and else *after* return (debatable)
+    > - missing semi-colons
+    > - poor variable names
+    > - redundant variables (e.g. `k`, `l`)
+    > - `for` loop is preferred when there is a fixed number of iterations
+    > - should check for even `size` at the beginning.
+    > - using `==` instead of `===`
+    > - not type-annotated!
+
+1. Open `package.json` and look through `scripts`,  `dependencies` and `devDependencies`. Install them if not already!
+    > ```shell
+    > $ npm install
+    > ```
+
+1. Use `eslint` to identify any linting issues.
+    > Can also show in IDE, but also show in command line
+    > ```shell
+    > $ npm run lint x.ts
+    > ```
+
+1. Use `eslint` to auto-fix most issues.
+    > Can do in IDE, but undo and show in command line
+    > ```shell
+    > $ npm run lint-fix x.ts
+    > ```
+
+1. Fix any remaining issues manually and refactor the code if applicable.
+
+    >
+    > <details close>
+    >
+    > <summary>Solution</summary>
+    >
+    > ```js
+    > export function drawX(size: number) {
+    >   if (size % 2 === 0) {
+    >     return 'error';
+    >   }
+    >   let result = '';
+    >   for (let row = 0; row < size; row++) {
+    >     for (let col = 0; col < size; col++) {
+    >       if (col === row || col === size - row - 1) {
+    >         result += 'x';
+    >       } else {
+    >         result += ' ';
+    >       }
+    >     }
+    >     result = result.trim() + '\n';
+    >   }
+    >   return result.slice(0, -1);
+    > }
+    > ```
+    >
+    > </details>
+
+## C. APIs
 
 > 5 minutes
 
@@ -216,9 +312,9 @@ Below are some examples of real-world APIs that are publicly available for every
 For a more comprehensive list of free APIs for use in software and web development, see:
 - https://github.com/public-apis/public-apis
 
-You will be building an API based on the swagger.yaml file in your project repository!
+You will be building an API for iteration 2!
 
-## C. HTTP Servers
+## D. HTTP Servers
 > 20 minutes
 
 We deploy our APIs on HTTP servers which can process HTTP requests and responses.
@@ -279,94 +375,3 @@ We deploy our APIs on HTTP servers which can process HTTP requests and responses
     > - Libraries eg: curl, sync request curl
 
 2. In an API client, create valid and invalid requests to one of the APIs given above (eg: send a GET request to https://pokeapi.co/api/v2/pokemon/ditto). After each request, take a look at the response body and status codes.
-
-## D. Linting
-> 10 minutes
-
-> tutor note: just show students how to use lint-fix if you're running out of time, don't worry about fixing the code manually.
-
-Below is a piece of software written by a COMP1531 tutor back when they were still a newbie programmer in COMP1511. This was the interface that they followed:
-
-### Interface: Functions
-
-<table>
-  <tr>
-    <th>Name & Description</th>
-    <th>Parameters</th>
-    <th>Return Type</th>
-    <th>Error</th>
-  </tr>
-  <tr>
-    <td>
-        <code>drawX</code><br/><br/>
-        Return a string that contains an x of a certain size, made up of smaller x-es.<br/>
-        There should be no trailing white spaces.
-    <td>
-        (size)
-    </td>
-    <td>
-        <code>string</code>
-    </td>
-    <td>
-        Return the string <code>'error'</code> if the given <code>size</code> is not an odd number.
-    </td>
-  </tr>
-</table>
-
-1. Without modifying the code, review the `drawX` function in [x.ts](d.linting/x.ts), what are some styling/design issues?
-    > Answers may vary - here are a few:
-    > - 4-indent (prefer 2 in COMP1531)
-    > - else-if and else *after* return (debatable)
-    > - missing semi-colons
-    > - poor variable names
-    > - redundant variables (e.g. `k`, `l`)
-    > - `for` loop is preferred when there is a fixed number of iterations
-    > - should check for even `size` at the beginning.
-    > - using `==` instead of `===`
-    > - not type-annotated!
-
-1. Open `package.json` and look through `scripts`,  `dependencies` and `devDependencies`. Install them if not already!
-    > ```shell
-    > $ npm install
-    > ```
-
-1. Use `eslint` to identify any linting issues.
-    > Can also show in IDE, but also show in command line
-    > ```shell
-    > $ npm run lint x.ts
-    > ```
-
-1. Use `eslint` to auto-fix most issues.
-    > Can do in IDE, but undo and show in command line
-    > ```shell
-    > $ npm run lint-fix x.ts
-    > ```
-
-1. Fix any remaining issues manually and refactor the code if applicable.
-
-    >
-    > <details close>
-    >
-    > <summary>Solution</summary>
-    >
-    > ```js
-    > export function drawX(size: number) {
-    >   if (size % 2 === 0) {
-    >     return 'error';
-    >   }
-    >   let result = '';
-    >   for (let row = 0; row < size; row++) {
-    >     for (let col = 0; col < size; col++) {
-    >       if (col === row || col === size - row - 1) {
-    >         result += 'x';
-    >       } else {
-    >         result += ' ';
-    >       }
-    >     }
-    >     result = result.trim() + '\n';
-    >   }
-    >   return result.slice(0, -1);
-    > }
-    > ```
-    >
-    > </details>
