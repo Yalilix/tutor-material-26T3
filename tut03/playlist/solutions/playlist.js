@@ -1,15 +1,15 @@
-import { getData } from "./dataStore.js";
-import { findSong, findUser } from "./helper.js";
-import { v4 as uuidv4 } from 'uuid';
 import { format } from "date-fns";
+import { v4 as uuidv4 } from 'uuid';
 import validator from 'validator';
 
+import { getData } from "./dataStore.js";
+import { findSong, findUser } from "./helper.js";
 
 /**
- * Registers a user with an email and password 
- * @param {string} email 
- * @param {string} password 
- * @returns {{userId: number} | {error: string, message: string}} 
+ * Registers a user with an email and password
+ * @param {string} email
+ * @param {string} password
+ * @returns {{userId: string} | {error: string}}
  */
 export function addUser(email, password) {
   // check if password is empty
@@ -46,10 +46,10 @@ export function addUser(email, password) {
 
 /**
  * Adds a new song to the database
- * @param {string} name 
- * @param {string} artist 
- * @param {number} duration 
- * @returns {{userId: number} | {error: string, message: string}}
+ * @param {string} name
+ * @param {string} artist
+ * @param {number} duration
+ * @returns {{songId: string} | {error: string}}
  */
 export function addSong(name, artist, duration) {
   if (name === '') {
@@ -73,9 +73,9 @@ export function addSong(name, artist, duration) {
 
 /**
  * Adds a song to a users playlist
- * @param {string} userId 
- * @param {string} songId 
- * @returns {{} | {error: string, message: string}}
+ * @param {string} userId
+ * @param {string} songId
+ * @returns {{} | {error: string}}
  */
 export function addToPlaylist(userId, songId) {
   const user = findUser(userId);
@@ -98,8 +98,8 @@ export function addToPlaylist(userId, songId) {
 
 /**
  * Lists all of the songs in a users playlist
- * @param {string} userId 
- * @returns {songs[] | {error: string, message: string}} playlist
+ * @param {string} userId
+ * @returns {Song[] | {error: string}} playlist
  */
 export function listPlaylist(userId) {
   const user = findUser(userId);
@@ -111,7 +111,7 @@ export function listPlaylist(userId) {
 
 /**
  * Returns the program to its original state
- * @returns {}
+ * @returns {{}}
  */
 export function clear() {
   const data = getData();

@@ -1,9 +1,9 @@
 import { getData } from "./dataStore.js";
 
 /**
- * 
- * @param {string} userId 
- * @returns {Object} user
+ *
+ * @param {string} userId
+ * @returns {Object | undefined} user
  */
 export function findUser(userId) {
   const data = getData();
@@ -11,9 +11,9 @@ export function findUser(userId) {
 }
 
 /**
- * 
- * @param {string} songId 
- * @returns {Object} song
+ *
+ * @param {string} songId
+ * @returns {Object | undefined} song
  */
 export function findSong(songId) {
   const data = getData();

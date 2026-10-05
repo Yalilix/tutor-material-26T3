@@ -1,7 +1,7 @@
-import { afterEach, describe, test, expect } from 'vitest';
+import { beforeEach, describe, test, expect } from 'vitest';
 import { addUser, addSong, addToPlaylist, listPlaylist, clear } from "./playlist.js";
 
-afterEach(() => {
+beforeEachEach(() => {
   clear();
 });
 
