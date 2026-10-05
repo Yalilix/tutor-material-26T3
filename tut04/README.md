@@ -180,10 +180,10 @@ In [types.js](a.typescript/types.js) lies some basic functions:
 
 3. What will happen to the invalid console.log statements now when we attempt to compile the program using `tsc` or execute it with `tsx`
     ```shell
-    $ npm run tsc types.ts
+    $ npm run typecheck types.ts
     $ npm run tsx types.ts
     ```
-    > running `npm run tsc types.ts` will result in type errors as we're passing incorrect types to the functions.
+    > running `npm run typecheck types.ts` will result in type errors as we're passing incorrect types to the functions.
     > running `npm run tsx types.ts` will run the code despite the type mismatches as it does not type check.
 
 4. (Optional) Remove function return types and re-execute/compile your code. Discuss your observations.

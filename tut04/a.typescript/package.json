@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest run",
-    "tsc": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "tsx": "tsx",
     "lint": "eslint '**/*.ts'",
     "lint-fix": "eslint --fix '**/*.ts'"

@@ -235,7 +235,7 @@ Please note:
 
 #### Marking
 When you think your program is working, you can run some simple automated tests:
-- type-saftey: `npm run tsc`
+- type-saftey: `npm run typecheck`
 - lint: `npm run lint`
 - tests: `npm run test`
 

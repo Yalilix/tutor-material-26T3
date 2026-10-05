@@ -3,7 +3,7 @@
   "scripts": {
     "test": "vitest run",
     "lint": "eslint",
-    "tsc": "tsc --noEmit --project tsconfig.json",
+    "typecheck": "tsc --noEmit --project tsconfig.json",
     "tsx": "tsx"
   }
 }
